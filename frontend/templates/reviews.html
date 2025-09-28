@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - GigCampus</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>GigCampus</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <div class="user-menu">
+                    <div class="user-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="user-dropdown">
+                        <a href="dashboard.html" class="dropdown-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Dashboard
+                        </a>
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            Profile
+                        </a>
+                        <a href="chat.html" class="dropdown-item">
+                            <i class="fas fa-comments"></i>
+                            Messages
+                        </a>
+                        <a href="earnings.html" class="dropdown-item">
+                            <i class="fas fa-rupee-sign"></i>
+                            Earnings
+                        </a>
+                        <a href="settings.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="reviews-grid">
+                <!-- Sidebar -->
+                <div class="reviews-sidebar">
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="profile.html" class="sidebar-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="my-services.html" class="sidebar-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>My Services</span>
+                        </a>
+                        <a href="bookings.html" class="sidebar-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Bookings</span>
+                        </a>
+                        <a href="chat.html" class="sidebar-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Messages</span>
+                            <span class="notification-badge">3</span>
+                        </a>
+                        <a href="earnings.html" class="sidebar-item">
+                            <i class="fas fa-rupee-sign"></i>
+                            <span>Earnings</span>
+                        </a>
+                        <a href="reviews.html" class="sidebar-item active">
+                            <i class="fas fa-star"></i>
+                            <span>Reviews</span>
+                        </a>
+                        <a href="settings.html" class="sidebar-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="reviews-main">
+                    <!-- Reviews Header -->
+                    <div class="reviews-header">
+                        <div class="header-content">
+                            <h1>Reviews & Ratings</h1>
+                            <p>Manage your feedback and track your reputation</p>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn-outline">
+                                <i class="fas fa-download"></i>
+                                Export Reviews
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Summary -->
+                    <div class="reviews-summary">
+                        <div class="summary-card">
+                            <div class="rating-overview">
+                                <div class="rating-score">
+                                    <span class="score">4.8</span>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>Based on 127 reviews</p>
+                                </div>
+                                <div class="rating-breakdown">
+                                    <div class="rating-bar">
+                                        <span>5</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 85%"></div>
+                                        </div>
+                                        <span>108</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>4</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 12%"></div>
+                                        </div>
+                                        <span>15</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>3</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 2%"></div>
+                                        </div>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>2</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 1%"></div>
+                                        </div>
+                                        <span>1</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span>1</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 0%"></div>
+                                        </div>
+                                        <span>0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Filter -->
+                    <div class="reviews-filter">
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter="all">All Reviews</button>
+                            <button class="filter-tab" data-filter="5">5 Stars</button>
+                            <button class="filter-tab" data-filter="4">4 Stars</button>
+                            <button class="filter-tab" data-filter="3">3 Stars</button>
+                            <button class="filter-tab" data-filter="2">2 Stars</button>
+                            <button class="filter-tab" data-filter="1">1 Star</button>
+                        </div>
+                        <div class="filter-actions">
+                            <select class="sort-select">
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                                <option value="highest">Highest Rated</option>
+                                <option value="lowest">Lowest Rated</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Reviews List -->
+                    <div class="reviews-list">
+                        <!-- Review 1 -->
+                        <div class="review-item" data-rating="5">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">
+                                        <div class="avatar-placeholder">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="reviewer-details">
+                                        <h4>Sarah Chen</h4>
+                                        <p>Computer Science, IIT Bombay</p>
+                                        <span class="review-date">2 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="review-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-text">Excellent</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <h5>Calculus Tutoring Session</h5>
+                                <p>Arjun is an excellent tutor! He explained calculus concepts in a way that finally made sense to me. His patience and teaching style helped me improve my grades significantly. I would definitely recommend him to anyone struggling with mathematics.</p>
+                                <div class="review-tags">
+                                    <span class="tag">Patient</span>
+                                    <span class="tag">Clear explanations</span>
+                                    <span class="tag">Helpful</span>
+                                </div>
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-reply"></i>
+                                    Reply
+                                </button>
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    Helpful
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="review-item" data-rating="5">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">
+                                        <div class="avatar-placeholder">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="reviewer-details">
+                                        <h4>Rahul Kumar</h4>
+                                        <p>Mechanical Engineering, IIT Delhi</p>
+                                        <span class="review-date">1 week ago</span>
+                                    </div>
+                                </div>
+                                <div class="review-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-text">Excellent</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <h5>Python Programming Lesson</h5>
+                                <p>Great Python programming sessions! Arjun helped me understand complex algorithms and data structures. His teaching method is very effective and he's always patient with questions. Highly recommended for anyone learning programming.</p>
+                                <div class="review-tags">
+                                    <span class="tag">Knowledgeable</span>
+                                    <span class="tag">Effective teaching</span>
+                                    <span class="tag">Patient</span>
+                                </div>
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-reply"></i>
+                                    Reply
+                                </button>
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    Helpful
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 -->
+                        <div class="review-item" data-rating="4">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">
+                                        <div class="avatar-placeholder">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="reviewer-details">
+                                        <h4>Ananya Singh</h4>
+                                        <p>Computer Science, IISc Bangalore</p>
+                                        <span class="review-date">2 weeks ago</span>
+                                    </div>
+                                </div>
+                                <div class="review-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="rating-text">Very Good</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <h5>Data Structures Session</h5>
+                                <p>Good session on data structures. Arjun explained the concepts well, though I wish we had more time for practice problems. Overall, it was helpful for my understanding of algorithms.</p>
+                                <div class="review-tags">
+                                    <span class="tag">Good explanations</span>
+                                    <span class="tag">Could use more practice</span>
+                                </div>
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-reply"></i>
+                                    Reply
+                                </button>
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    Helpful
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Review 4 -->
+                        <div class="review-item" data-rating="5">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">
+                                        <div class="avatar-placeholder">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="reviewer-details">
+                                        <h4>Priya Sharma</h4>
+                                        <p>Electrical Engineering, IIT Delhi</p>
+                                        <span class="review-date">3 weeks ago</span>
+                                    </div>
+                                </div>
+                                <div class="review-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-text">Excellent</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <h5>Calculus Problem Solving</h5>
+                                <p>Arjun helped me solve complex integration problems step by step. His approach to breaking down difficult problems made everything much clearer. I improved my problem-solving skills significantly.</p>
+                                <div class="review-tags">
+                                    <span class="tag">Step-by-step approach</span>
+                                    <span class="tag">Problem solving</span>
+                                    <span class="tag">Clear explanations</span>
+                                </div>
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-reply"></i>
+                                    Reply
+                                </button>
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    Helpful
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Review 5 -->
+                        <div class="review-item" data-rating="3">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">
+                                        <div class="avatar-placeholder">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="reviewer-details">
+                                        <h4>Vikram Patel</h4>
+                                        <p>Civil Engineering, IIT Bombay</p>
+                                        <span class="review-date">1 month ago</span>
+                                    </div>
+                                </div>
+                                <div class="review-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="rating-text">Good</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <h5>Statistics Session</h5>
+                                <p>The session was okay, but I felt it could have been more interactive. Arjun knows the subject well, but the teaching style didn't match my learning preferences.</p>
+                                <div class="review-tags">
+                                    <span class="tag">Knowledgeable</span>
+                                    <span class="tag">Could be more interactive</span>
+                                </div>
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-reply"></i>
+                                    Reply
+                                </button>
+                                <button class="btn-outline btn-small">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    Helpful
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="load-more">
+                        <button class="btn-outline btn-large">Load More Reviews</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GigCampus</h3>
+                    <p>Connecting students across India to create opportunities and build communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="academic-tutoring.html">Tutoring</a></li>
+                        <li><a href="creative-design.html">Design</a></li>
+                        <li><a href="tech-services.html">Programming</a></li>
+                        <li><a href="photography.html">Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">hello@gigcampus.in</a></li>
+                        <li><a href="#">+91 98765 43210</a></li>
+                        <li><a href="#">Mumbai, Maharashtra</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GigCampus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

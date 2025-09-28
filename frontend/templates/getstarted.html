@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - GigCampus</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>GigCampus</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="signin.html" class="btn-secondary">Sign In</a>
+                <a href="getstarted.html" class="btn-primary">Get Started</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Get Started Section -->
+    <section class="auth-section">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Join GigCampus</h1>
+                    <p>Create your account and start earning</p>
+                </div>
+                
+                <form class="auth-form" id="signupForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">University Email</label>
+                        <input type="email" id="email" name="email" placeholder="yourname@university.edu" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="university">University</label>
+                        <select id="university" name="university" required>
+                            <option value="">Select your university</option>
+                            <option value="MIT">Massachusetts Institute of Technology</option>
+                            <option value="Stanford">Stanford University</option>
+                            <option value="Harvard">Harvard University</option>
+                            <option value="UCLA">University of California, Los Angeles</option>
+                            <option value="Berkeley">University of California, Berkeley</option>
+                            <option value="Yale">Yale University</option>
+                            <option value="Princeton">Princeton University</option>
+                            <option value="Columbia">Columbia University</option>
+                            <option value="NYU">New York University</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="major">Major/Field of Study</label>
+                        <input type="text" id="major" name="major" placeholder="e.g., Computer Science, Business" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userType">I want to:</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="userType" value="offer" required>
+                                <span class="radio-mark"></span>
+                                Offer services
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="userType" value="hire" required>
+                                <span class="radio-mark"></span>
+                                Hire services
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="userType" value="both" required>
+                                <span class="radio-mark"></span>
+                                Both
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-full">Create Account</button>
+                </form>
+                
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button class="social-btn google-btn">
+                        <i class="fab fa-google"></i>
+                        Continue with Google
+                    </button>
+                    <button class="social-btn facebook-btn">
+                        <i class="fab fa-facebook"></i>
+                        Continue with Facebook
+                    </button>
+                </div>
+                
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="signin.html">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

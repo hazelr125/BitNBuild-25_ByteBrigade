@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages - GigCampus</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo"><a href="index.html"><h2>GigCampus</h2></a></div>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-buttons">
+        <div class="user-menu">
+          <div class="user-avatar">
+            <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
+          </div>
+          <div class="user-dropdown">
+            <a href="dashboard.html" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="profile.html" class="dropdown-item"><i class="fas fa-user-edit"></i> Profile</a>
+            <a href="chat.html" class="dropdown-item active"><i class="fas fa-comments"></i> Messages</a>
+            <a href="earnings.html" class="dropdown-item"><i class="fas fa-rupee-sign"></i> Earnings</a>
+            <a href="settings.html" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+            <div class="dropdown-divider"></div>
+            <a href="index.html" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </div>
+        </div>
+      </div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- Messages Section -->
+  <section class="profile-section">
+    <div class="container">
+      <div class="profile-grid">
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+          <div class="sidebar-menu">
+            <a href="dashboard.html" class="sidebar-item"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+            <a href="profile.html" class="sidebar-item"><i class="fas fa-user-edit"></i> <span>Profile</span></a>
+            <a href="services.html" class="sidebar-item"><i class="fas fa-briefcase"></i> <span>My Services</span></a>
+            <a href="bookings.html" class="sidebar-item"><i class="fas fa-calendar-check"></i> <span>Bookings</span></a>
+            <a href="chat.html" class="sidebar-item active"><i class="fas fa-comments"></i> <span>Messages</span></a>
+            <a href="earnings.html" class="sidebar-item"><i class="fas fa-rupee-sign"></i> <span>Earnings</span></a>
+            <a href="reviews.html" class="sidebar-item"><i class="fas fa-star"></i> <span>Reviews</span></a>
+            <a href="settings.html" class="sidebar-item"><i class="fas fa-cog"></i> <span>Settings</span></a>
+          </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="profile-main">
+          <div class="chat-container">
+            <!-- Chat Sidebar -->
+            <div class="chat-sidebar">
+              <div class="chat-header">
+                <h3>Messages</h3>
+                <button class="new-message-btn"><i class="fas fa-plus"></i></button>
+              </div>
+              <div class="chat-search">
+                <div class="search-input"><i class="fas fa-search"></i><input type="text" placeholder="Search conversations..."></div>
+              </div>
+              <div class="conversations-list">
+                <div class="conversation-item active" data-chat="sarah">
+                  <div class="conversation-avatar"><div class="avatar-placeholder"><i class="fas fa-user"></i></div><div class="online-indicator"></div></div>
+                  <div class="conversation-info"><h4>Sarah Chen</h4><p>Thanks for the calculus session yesterday!</p><span class="conversation-time">2 min ago</span></div>
+                  <div class="conversation-badge">2</div>
+                </div>
+                <div class="conversation-item" data-chat="rahul">
+                  <div class="conversation-avatar"><div class="avatar-placeholder"><i class="fas fa-user"></i></div></div>
+                  <div class="conversation-info"><h4>Rahul Kumar</h4><p>Can we schedule the physics session for tomorrow?</p><span class="conversation-time">1 hour ago</span></div>
+                </div>
+                <div class="conversation-item" data-chat="priya">
+                  <div class="conversation-avatar"><div class="avatar-placeholder"><i class="fas fa-user"></i></div><div class="online-indicator"></div></div>
+                  <div class="conversation-info"><h4>Priya Sharma</h4><p>I need help with my design project</p><span class="conversation-time">3 hours ago</span></div>
+                </div>
+                <div class="conversation-item" data-chat="ananya">
+                  <div class="conversation-avatar"><div class="avatar-placeholder"><i class="fas fa-user"></i></div></div>
+                  <div class="conversation-info"><h4>Ananya Singh</h4><p>Great work on the chemistry assignment!</p><span class="conversation-time">1 day ago</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Main -->
+            <div class="chat-main">
+              <div class="chat-main-header">
+                <div class="chat-user-info">
+                  <div class="chat-user-avatar"><div class="avatar-placeholder"><i class="fas fa-user"></i></div><div class="online-indicator"></div></div>
+                  <div class="chat-user-details"><h3>Sarah Chen</h3><p>Online</p></div>
+                </div>
+                <div class="chat-actions">
+                  <button class="chat-action-btn"><i class="fas fa-phone"></i></button>
+                  <button class="chat-action-btn"><i class="fas fa-video"></i></button>
+                  <button class="chat-action-btn"><i class="fas fa-ellipsis-v"></i></button>
+                </div>
+              </div>
+
+              <div class="chat-messages" id="chatMessages">
+                <!-- Your messages go here (received/sent) -->
+              </div>
+
+              <div class="chat-input-container">
+                <div class="chat-input">
+                  <button class="attachment-btn"><i class="fas fa-paperclip"></i></button>
+                  <input type="text" placeholder="Type a message..." id="messageInput">
+                  <button class="emoji-btn"><i class="fas fa-smile"></i></button>
+                  <button class="send-btn" id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>GigCampus</h3>
+          <p>Connecting students across India to create opportunities and build communities.</p>
+          <div class="social-links"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin"></i></a></div>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="academic-tutoring.html">Tutoring</a></li>
+            <li><a href="creative-design.html">Design</a></li>
+            <li><a href="tech-services.html">Programming</a></li>
+            <li><a href="photography.html">Photography</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Safety</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">hello@gigcampus.in</a></li>
+            <li><a href="#">+91 98765 43210</a></li>
+            <li><a href="#">Mumbai, Maharashtra</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 GigCampus. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="/static/js//static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - GigCampus</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>GigCampus</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <div class="user-menu">
+                    <div class="user-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="user-dropdown">
+                        <a href="dashboard.html" class="dropdown-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Dashboard
+                        </a>
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            Profile
+                        </a>
+                        <a href="chat.html" class="dropdown-item">
+                            <i class="fas fa-comments"></i>
+                            Messages
+                        </a>
+                        <a href="earnings.html" class="dropdown-item">
+                            <i class="fas fa-rupee-sign"></i>
+                            Earnings
+                        </a>
+                        <a href="settings.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Analytics Section -->
+    <section class="analytics-section">
+        <div class="container">
+            <div class="analytics-grid">
+                <!-- Sidebar -->
+                <div class="analytics-sidebar">
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="profile.html" class="sidebar-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="my-services.html" class="sidebar-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>My Services</span>
+                        </a>
+                        <a href="bookings.html" class="sidebar-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Bookings</span>
+                        </a>
+                        <a href="chat.html" class="sidebar-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Messages</span>
+                            <span class="notification-badge">3</span>
+                        </a>
+                        <a href="earnings.html" class="sidebar-item">
+                            <i class="fas fa-rupee-sign"></i>
+                            <span>Earnings</span>
+                        </a>
+                        <a href="reviews.html" class="sidebar-item">
+                            <i class="fas fa-star"></i>
+                            <span>Reviews</span>
+                        </a>
+                        <a href="settings.html" class="sidebar-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="analytics-main">
+                    <!-- Analytics Header -->
+                    <div class="analytics-header">
+                        <div class="header-content">
+                            <h1>Analytics & Insights</h1>
+                            <p>Track your performance and optimize your services</p>
+                        </div>
+                        <div class="header-actions">
+                            <select class="period-select">
+                                <option value="7d">Last 7 days</option>
+                                <option value="30d" selected>Last 30 days</option>
+                                <option value="90d">Last 3 months</option>
+                                <option value="1y">Last year</option>
+                            </select>
+                            <button class="btn-outline">
+                                <i class="fas fa-download"></i>
+                                Export Report
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Key Metrics -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>2,450</h3>
+                                <p>Profile Views</p>
+                                <span class="metric-change positive">+12% from last month</span>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>8</h3>
+                                <p>Total Bookings</p>
+                                <span class="metric-change positive">+33% from last month</span>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>₹12,450</h3>
+                                <p>Total Earnings</p>
+                                <span class="metric-change positive">+15% from last month</span>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>4.8</h3>
+                                <p>Average Rating</p>
+                                <span class="metric-change positive">+0.2 from last month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Charts -->
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Earnings Trend</h3>
+                                <div class="chart-controls">
+                                    <button class="chart-btn active" data-metric="earnings">Earnings</button>
+                                    <button class="chart-btn" data-metric="bookings">Bookings</button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <div class="chart-placeholder">
+                                    <i class="fas fa-chart-line"></i>
+                                    <p>Earnings Chart</p>
+                                    <div class="chart-bars">
+                                        <div class="bar" style="height: 60%"></div>
+                                        <div class="bar" style="height: 80%"></div>
+                                        <div class="bar" style="height: 45%"></div>
+                                        <div class="bar" style="height: 90%"></div>
+                                        <div class="bar" style="height: 70%"></div>
+                                        <div class="bar" style="height: 85%"></div>
+                                        <div class="bar" style="height: 95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Service Performance</h3>
+                            </div>
+                            <div class="chart-container">
+                                <div class="service-performance">
+                                    <div class="performance-item">
+                                        <div class="service-info">
+                                            <h4>Calculus Tutoring</h4>
+                                            <p>5 sessions • ₹5,000 earned</p>
+                                        </div>
+                                        <div class="performance-bar">
+                                            <div class="bar-fill" style="width: 85%"></div>
+                                        </div>
+                                        <span class="performance-score">85%</span>
+                                    </div>
+                                    <div class="performance-item">
+                                        <div class="service-info">
+                                            <h4>Python Programming</h4>
+                                            <p>3 sessions • ₹3,600 earned</p>
+                                        </div>
+                                        <div class="performance-bar">
+                                            <div class="bar-fill" style="width: 70%"></div>
+                                        </div>
+                                        <span class="performance-score">70%</span>
+                                    </div>
+                                    <div class="performance-item">
+                                        <div class="service-info">
+                                            <h4>Data Structures</h4>
+                                            <p>2 sessions • ₹3,000 earned</p>
+                                        </div>
+                                        <div class="performance-bar">
+                                            <div class="bar-fill" style="width: 60%"></div>
+                                        </div>
+                                        <span class="performance-score">60%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Analytics -->
+                    <div class="analytics-details">
+                        <div class="analytics-card">
+                            <h3>Booking Analytics</h3>
+                            <div class="analytics-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Conversion Rate</span>
+                                    <span class="stat-value">12.5%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Average Response Time</span>
+                                    <span class="stat-value">2.3 hours</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Repeat Booking Rate</span>
+                                    <span class="stat-value">45%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Cancellation Rate</span>
+                                    <span class="stat-value">5%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Student Demographics</h3>
+                            <div class="demographics-grid">
+                                <div class="demographic-item">
+                                    <h4>Universities</h4>
+                                    <div class="demographic-list">
+                                        <div class="demographic-bar">
+                                            <span>IIT Bombay</span>
+                                            <div class="bar">
+                                                <div class="fill" style="width: 40%"></div>
+                                            </div>
+                                            <span>40%</span>
+                                        </div>
+                                        <div class="demographic-bar">
+                                            <span>IIT Delhi</span>
+                                            <div class="bar">
+                                                <div class="fill" style="width: 30%"></div>
+                                            </div>
+                                            <span>30%</span>
+                                        </div>
+                                        <div class="demographic-bar">
+                                            <span>IISc Bangalore</span>
+                                            <div class="bar">
+                                                <div class="fill" style="width: 20%"></div>
+                                            </div>
+                                            <span>20%</span>
+                                        </div>
+                                        <div class="demographic-bar">
+                                            <span>Others</span>
+                                            <div class="bar">
+                                                <div class="fill" style="width: 10%"></div>
+                                            </div>
+                                            <span>10%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="demographic-item">
+                                    <h4>Courses</h4>
+                                    <div class="demographic-list">
+                                        <div class="demographic-bar">
+                                            <span>Computer Science</span>
+                                            <div class="bar">
+                                                <div class="fill" style="width: 50%"></div>
+                                            </div>
+                                            <span>50%</span>
+                                        </div>
+                                        <div class="demographic-bar">
+                                            <span>Mechanical</span>
+                                            <div class="bar">
+                                                <div class="fill" style="width: 25%"></div>
+                                            </div>
+                                            <span>25%</span>
+                                        </div>
+                                        <div class="demographic-bar">
+                                            <span>Electrical</span>
+                                            <div class="bar">
+                                                <div class="fill" style="width: 15%"></div>
+                                            </div>
+                                            <span>15%</span>
+                                        </div>
+                                        <div class="demographic-bar">
+                                            <span>Others</span>
+                                            <div class="bar">
+                                                <div class="fill" style="width: 10%"></div>
+                                            </div>
+                                            <span>10%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="recommendations">
+                        <h3>Performance Recommendations</h3>
+                        <div class="recommendations-list">
+                            <div class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="recommendation-content">
+                                    <h4>Optimize Your Profile</h4>
+                                    <p>Add more detailed descriptions to your services to increase conversion rates by 15%</p>
+                                </div>
+                                <button class="btn-outline btn-small">Optimize</button>
+                            </div>
+                            <div class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="recommendation-content">
+                                    <h4>Improve Response Time</h4>
+                                    <p>Respond to messages within 1 hour to increase booking rates by 25%</p>
+                                </div>
+                                <button class="btn-outline btn-small">Set Reminders</button>
+                            </div>
+                            <div class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="recommendation-content">
+                                    <h4>Request More Reviews</h4>
+                                    <p>Ask satisfied students for reviews to build trust and increase bookings</p>
+                                </div>
+                                <button class="btn-outline btn-small">Send Requests</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GigCampus</h3>
+                    <p>Connecting students across India to create opportunities and build communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="academic-tutoring.html">Tutoring</a></li>
+                        <li><a href="creative-design.html">Design</a></li>
+                        <li><a href="tech-services.html">Programming</a></li>
+                        <li><a href="photography.html">Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">hello@gigcampus.in</a></li>
+                        <li><a href="#">+91 98765 43210</a></li>
+                        <li><a href="#">Mumbai, Maharashtra</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GigCampus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js//static/js/script.js"></script>
+</body>
+</html>

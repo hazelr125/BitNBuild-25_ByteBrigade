@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Authentication</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-info { background: #f5f5f5; padding: 10px; margin: 10px 0; }
+        .success { color: green; }
+        .error { color: red; }
+        .warning { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Authentication Debug</h1>
+    <div id="debug-output"></div>
+    
+    <h2>Manual Login Test</h2>
+    <form id="testLogin">
+        <input type="email" placeholder="Email" value="val123@gmail.com" required>
+        <input type="password" placeholder="Password" value="123456" required>
+        <button type="submit">Test Login</button>
+    </form>
+    
+    <h2>Manual Profile Test</h2>
+    <button onclick="testProfile()">Test Get Profile</button>
+    
+    <script src="../static/js/api.js"></script>
+    <script>
+        const api = new GigCampusAPI();
+        const output = document.getElementById('debug-output');
+        
+        function log(message, type = 'info') {
+            console.log(message);
+            const div = document.createElement('div');
+            div.className = `debug-info ${type}`;
+            div.innerHTML = `${new Date().toLocaleTimeString()}: ${message}`;
+            output.appendChild(div);
+        }
+        
+        // Check current authentication status
+        document.addEventListener('DOMContentLoaded', () => {
+            log('🔍 Checking current authentication status...');
+            log('Token in localStorage: ' + (localStorage.getItem('authToken') ? 'YES' : 'NO'));
+            log('API token: ' + (api.token ? api.token.substring(0, 20) + '...' : 'NONE'));
+            log('Is authenticated: ' + api.isAuthenticated());
+        });
+        
+        // Test login form
+        document.getElementById('testLogin').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            
+            try {
+                log('🔄 Attempting login...', 'warning');
+                const result = await api.login({
+                    email: formData.get('email'),
+                    password: formData.get('password')
+                });
+                
+                log('✅ Login successful!', 'success');
+                log('Response: ' + JSON.stringify(result, null, 2));
+                log('Token now in localStorage: ' + (localStorage.getItem('authToken') ? 'YES' : 'NO'));
+                
+            } catch (error) {
+                log('❌ Login failed: ' + error.message, 'error');
+            }
+        });
+        
+        // Test profile fetch
+        async function testProfile() {
+            try {
+                log('🔄 Fetching profile...', 'warning');
+                log('Current token: ' + (api.token ? api.token.substring(0, 20) + '...' : 'NONE'));
+                
+                const profile = await api.getProfile();
+                log('✅ Profile fetch successful!', 'success');
+                log('Profile data: ' + JSON.stringify(profile, null, 2));
+                
+                if (profile.firstName) {
+                    log('✅ Name found: ' + profile.firstName + ' ' + (profile.lastName || ''), 'success');
+                } else {
+                    log('❌ No firstName in profile!', 'error');
+                }
+                
+            } catch (error) {
+                log('❌ Profile fetch failed: ' + error.message, 'error');
+            }
+        }
+    </script>
+</body>
+</html>

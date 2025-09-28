@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - GigCampus</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>GigCampus</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="signin.html" class="btn-secondary">Sign In</a>
+                <a href="getstarted.html" class="btn-primary">Get Started</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-container">
+                <!-- Payment Header -->
+                <div class="payment-header">
+                    <h1>Complete Your Payment</h1>
+                    <p>Secure payment powered by Razorpay</p>
+                </div>
+                
+                <div class="payment-grid">
+                    <!-- Service Details -->
+                    <div class="service-details-card">
+                        <h2>Service Details</h2>
+                        <div class="service-info">
+                            <div class="service-provider">
+                                <div class="provider-avatar">
+                                    <div class="avatar-placeholder">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="provider-info">
+                                    <h3>Sarah Chen</h3>
+                                    <p>Computer Science, IIT Bombay</p>
+                                    <div class="provider-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>4.9 (127 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="service-description">
+                                <h4>Calculus Tutoring Session</h4>
+                                <p>2-hour session covering derivatives and integrals</p>
+                                <div class="service-meta">
+                                    <span><i class="fas fa-calendar"></i> Tomorrow, 2:00 PM</span>
+                                    <span><i class="fas fa-video"></i> Online Session</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Form -->
+                    <div class="payment-form-card">
+                        <h2>Payment Information</h2>
+                        <form class="payment-form" id="paymentForm">
+                            <!-- Amount Display -->
+                            <div class="amount-display">
+                                <div class="amount-breakdown">
+                                    <div class="amount-item">
+                                        <span>Service Fee (2 hours × ₹1000)</span>
+                                        <span>₹2,000</span>
+                                    </div>
+                                    <div class="amount-item">
+                                        <span>Platform Fee (5%)</span>
+                                        <span>₹100</span>
+                                    </div>
+                                    <div class="amount-item">
+                                        <span>GST (18%)</span>
+                                        <span>₹378</span>
+                                    </div>
+                                    <div class="amount-item total">
+                                        <span>Total Amount</span>
+                                        <span>₹2,478</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Payment Method Selection -->
+                            <div class="payment-methods">
+                                <h3>Choose Payment Method</h3>
+                                <div class="payment-options">
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="upi" checked>
+                                        <div class="option-content">
+                                            <div class="option-icon">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                            <div class="option-info">
+                                                <h4>UPI</h4>
+                                                <p>Pay using UPI ID or QR code</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="card">
+                                        <div class="option-content">
+                                            <div class="option-icon">
+                                                <i class="fas fa-credit-card"></i>
+                                            </div>
+                                            <div class="option-info">
+                                                <h4>Credit/Debit Card</h4>
+                                                <p>Visa, Mastercard, RuPay</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="netbanking">
+                                        <div class="option-content">
+                                            <div class="option-icon">
+                                                <i class="fas fa-university"></i>
+                                            </div>
+                                            <div class="option-info">
+                                                <h4>Net Banking</h4>
+                                                <p>All major banks supported</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="wallet">
+                                        <div class="option-content">
+                                            <div class="option-icon">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <div class="option-info">
+                                                <h4>Digital Wallet</h4>
+                                                <p>Paytm, PhonePe, Google Pay</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- UPI Payment Details -->
+                            <div class="payment-details upi-details" id="upiDetails">
+                                <h3>UPI Payment</h3>
+                                <div class="upi-options">
+                                    <div class="upi-option">
+                                        <label>
+                                            <input type="radio" name="upiMethod" value="id" checked>
+                                            <span>Enter UPI ID</span>
+                                        </label>
+                                        <input type="text" placeholder="yourname@paytm" class="upi-input">
+                                    </div>
+                                    <div class="upi-option">
+                                        <label>
+                                            <input type="radio" name="upiMethod" value="qr">
+                                            <span>Scan QR Code</span>
+                                        </label>
+                                        <div class="qr-code">
+                                            <div class="qr-placeholder">
+                                                <i class="fas fa-qrcode"></i>
+                                                <p>QR Code will appear here</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card Payment Details -->
+                            <div class="payment-details card-details" id="cardDetails" style="display: none;">
+                                <h3>Card Details</h3>
+                                <div class="card-form">
+                                    <div class="form-group">
+                                        <label>Card Number</label>
+                                        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Expiry Date</label>
+                                            <input type="text" placeholder="MM/YY" maxlength="5">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>CVV</label>
+                                            <input type="text" placeholder="123" maxlength="3">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cardholder Name</label>
+                                        <input type="text" placeholder="John Doe">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Security Features -->
+                            <div class="security-features">
+                                <div class="security-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>256-bit SSL encryption</span>
+                                </div>
+                                <div class="security-item">
+                                    <i class="fas fa-lock"></i>
+                                    <span>PCI DSS compliant</span>
+                                </div>
+                                <div class="security-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Razorpay secured</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Terms and Conditions -->
+                            <div class="terms-agreement">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                                </label>
+                            </div>
+                            
+                            <!-- Payment Button -->
+                            <button type="submit" class="btn-primary btn-large payment-btn">
+                                <i class="fas fa-lock"></i>
+                                Pay ₹2,478 Securely
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Payment Security -->
+                <div class="payment-security">
+                    <h3>Your Payment is Protected</h3>
+                    <div class="security-grid">
+                        <div class="security-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Secure Processing</h4>
+                            <p>All payments are processed through Razorpay's secure infrastructure</p>
+                        </div>
+                        <div class="security-card">
+                            <i class="fas fa-undo"></i>
+                            <h4>Easy Refunds</h4>
+                            <p>Get instant refunds if you're not satisfied with the service</p>
+                        </div>
+                        <div class="security-card">
+                            <i class="fas fa-headset"></i>
+                            <h4>24/7 Support</h4>
+                            <p>Our support team is always here to help with any payment issues</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GigCampus</h3>
+                    <p>Connecting students across India to create opportunities and build communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="academic-tutoring.html">Tutoring</a></li>
+                        <li><a href="creative-design.html">Design</a></li>
+                        <li><a href="tech-services.html">Programming</a></li>
+                        <li><a href="photography.html">Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">hello@gigcampus.in</a></li>
+                        <li><a href="#">+91 98765 43210</a></li>
+                        <li><a href="#">Mumbai, Maharashtra</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GigCampus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

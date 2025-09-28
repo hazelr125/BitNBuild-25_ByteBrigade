@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Services - GigCampus</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>GigCampus</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="signin.html" class="btn-secondary">Sign In</a>
+                <a href="getstarted.html" class="btn-primary">Get Started</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Header -->
+    <section class="services-header">
+        <div class="container">
+            <h1>Browse Services</h1>
+            <p>Find the perfect service for your needs</p>
+        </div>
+    </section>
+
+    <!-- Service Filters -->
+    <section class="service-filters">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="academic-tutoring">Academic Tutoring</option>
+                        <option value="tech-services">Tech Services</option>
+                        <option value="creative-design">Creative Design</option>
+                        <option value="photography">Photography</option>
+                        <option value="language-learning">Language Learning</option>
+                        <option value="fitness-training">Fitness Training</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="sortFilter" class="filter-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <input type="search" id="searchInput" class="search-input" placeholder="Search services...">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-grid-section">
+        <div class="container">
+            <div class="services-count">
+                <span id="servicesCount">Loading services...</span>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="servicesLoading" class="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading services...</p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div id="servicesGrid" class="services-grid" style="display: none;">
+                <!-- Services will be dynamically loaded here -->
+            </div>
+            
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>No services found</h3>
+                <p>Try adjusting your search criteria or check back later.</p>
+                <a href="getstarted.html" class="btn-primary">Create a Service</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GigCampus</h3>
+                    <p>Connecting students across campuses to create opportunities and build communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="academic-tutoring.html">Tutoring</a></li>
+                        <li><a href="creative-design.html">Design</a></li>
+                        <li><a href="tech-services.html">Programming</a></li>
+                        <li><a href="photography.html">Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">hello@gigcampus.com</a></li>
+                        <li><a href="#">+1 (555) 123-4567</a></li>
+                        <li><a href="#">University Ave, Campus City</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GigCampus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/script.js"></script>
+    
+    <style>
+        /* Service Filters */
+        .service-filters {
+            background: #f8fafc;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .filter-bar {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-select, .search-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+        }
+        
+        .filter-select:focus, .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        /* Services Grid */
+        .services-grid-section {
+            padding: 40px 0;
+        }
+        
+        .services-count {
+            margin-bottom: 20px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .service-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .service-info h3 {
+            margin: 0 0 4px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .service-provider {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .service-description {
+            color: #4b5563;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        
+        .service-category {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .service-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 12px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .btn-primary-small {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-outline-small {
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        /* Loading and Empty States */
+        .loading-state, .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e5e7eb;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        .empty-icon {
+            width: 80px;
+            height: 80px;
+            background: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 32px;
+            color: #9ca3af;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .filter-bar {
+                flex-direction: column;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+    <script>
+        // Dynamic Services Page
+        let allServices = [];
+        let filteredServices = [];
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🔄 Loading services page...');
+            
+            // Load services
+            await loadServices();
+            
+            // Setup event listeners
+            setupEventListeners();
+        });
+
+        async function loadServices() {
+            try {
+                showLoading(true);
+                console.log('📡 Fetching services from API...');
+                
+                // Get all services from API
+                const response = await fetch('http://localhost:5000/api/projects');
+                const data = await response.json();
+                
+                allServices = data.projects || data || [];
+                filteredServices = [...allServices];
+                
+                console.log('✅ Loaded services:', allServices.length);
+                
+                showLoading(false);
+                displayServices(filteredServices);
+                updateServicesCount();
+                
+            } catch (error) {
+                showLoading(false);
+                console.error('❌ Error loading services:', error);
+                showEmptyState();
+                document.getElementById('servicesCount').textContent = 'Failed to load services';
+            }
+        }
+
+        function displayServices(services) {
+            const servicesGrid = document.getElementById('servicesGrid');
+            
+            if (services.length === 0) {
+                showEmptyState();
+                return;
+            }
+            
+            servicesGrid.style.display = 'grid';
+            document.getElementById('emptyState').style.display = 'none';
+            
+            servicesGrid.innerHTML = services.map(service => `
+                <div class="service-card" onclick="viewService(${service.id})">
+                    <div class="service-header">
+                        <div class="service-avatar">
+                            ${getProviderInitials(service.poster)}
+                        </div>
+                        <div class="service-info">
+                            <h3>${service.title}</h3>
+                            <div class="service-provider">by ${getProviderName(service.poster)}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-category">${formatCategory(service.category)}</div>
+                    
+                    <div class="service-description">
+                        ${service.description.substring(0, 120)}${service.description.length > 120 ? '...' : ''}
+                    </div>
+                    
+                    <div class="service-footer">
+                        <div class="service-price">₹${service.budget} / ${service.budgetType}</div>
+                        <div class="service-actions">
+                            <button class="btn-outline-small" onclick="contactProvider(${service.id}, event)">
+                                💬 Contact
+                            </button>
+                            <button class="btn-primary-small" onclick="viewService(${service.id}, event)">
+                                👁️ View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupEventListeners() {
+            // Category filter
+            document.getElementById('categoryFilter').addEventListener('change', filterServices);
+            
+            // Sort filter
+            document.getElementById('sortFilter').addEventListener('change', sortServices);
+            
+            // Search input
+            let searchTimeout;
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => searchServices(e.target.value), 300);
+            });
+        }
+
+        function filterServices() {
+            const selectedCategory = document.getElementById('categoryFilter').value;
+            
+            if (selectedCategory === '') {
+                filteredServices = [...allServices];
+            } else {
+                filteredServices = allServices.filter(service => 
+                    service.category === selectedCategory
+                );
+            }
+            
+            applySortAndDisplay();
+        }
+
+        function sortServices() {
+            const sortBy = document.getElementById('sortFilter').value;
+            
+            switch (sortBy) {
+                case 'newest':
+                    filteredServices.sort((a, b) => new Date(b.createdAt || b.created_at) - new Date(a.createdAt || a.created_at));
+                    break;
+                case 'oldest':
+                    filteredServices.sort((a, b) => new Date(a.createdAt || a.created_at) - new Date(b.createdAt || b.created_at));
+                    break;
+                case 'price-low':
+                    filteredServices.sort((a, b) => parseFloat(a.budget) - parseFloat(b.budget));
+                    break;
+                case 'price-high':
+                    filteredServices.sort((a, b) => parseFloat(b.budget) - parseFloat(a.budget));
+                    break;
+            }
+            
+            displayServices(filteredServices);
+        }
+
+        function searchServices(query) {
+            if (!query.trim()) {
+                filteredServices = [...allServices];
+            } else {
+                const searchTerm = query.toLowerCase();
+                filteredServices = allServices.filter(service => 
+                    service.title.toLowerCase().includes(searchTerm) ||
+                    service.description.toLowerCase().includes(searchTerm) ||
+                    service.category.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            applySortAndDisplay();
+        }
+
+        function applySortAndDisplay() {
+            sortServices();
+            updateServicesCount();
+        }
+
+        function updateServicesCount() {
+            const count = filteredServices.length;
+            const total = allServices.length;
+            document.getElementById('servicesCount').textContent = 
+                `Showing ${count} of ${total} services`;
+        }
+
+        function showLoading(show) {
+            document.getElementById('servicesLoading').style.display = show ? 'block' : 'none';
+            document.getElementById('servicesGrid').style.display = show ? 'none' : 'grid';
+        }
+
+        function showEmptyState() {
+            document.getElementById('servicesGrid').style.display = 'none';
+            document.getElementById('emptyState').style.display = 'block';
+        }
+
+        // Helper functions
+        function getProviderInitials(user) {
+            if (user && user.firstName) {
+                return user.firstName.charAt(0).toUpperCase();
+            }
+            return 'U';
+        }
+
+        function getProviderName(user) {
+            if (user && user.firstName) {
+                return `${user.firstName} ${user.lastName || ''}`.trim();
+            }
+            return 'User';
+        }
+
+        function formatCategory(category) {
+            return category.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+        }
+
+        function viewService(serviceId, event) {
+            if (event) event.stopPropagation();
+            console.log('Viewing service:', serviceId);
+            // TODO: Navigate to service detail page
+            alert(`Service details for ID: ${serviceId} will be implemented`);
+        }
+
+        function contactProvider(serviceId, event) {
+            if (event) event.stopPropagation();
+            console.log('Contacting provider for service:', serviceId);
+            // TODO: Open contact/messaging interface
+            alert(`Contact functionality for service ID: ${serviceId} will be implemented`);
+        }
+    </script>
+</body>
+</html>

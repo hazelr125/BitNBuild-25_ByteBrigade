@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Service - GigCampus</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>GigCampus</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <div class="user-menu">
+                    <div class="user-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="user-dropdown">
+                        <a href="dashboard.html" class="dropdown-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Dashboard
+                        </a>
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            Profile
+                        </a>
+                        <a href="chat.html" class="dropdown-item">
+                            <i class="fas fa-comments"></i>
+                            Messages
+                        </a>
+                        <a href="earnings.html" class="dropdown-item">
+                            <i class="fas fa-rupee-sign"></i>
+                            Earnings
+                        </a>
+                        <a href="settings.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Add Service Section -->
+    <section class="add-service-section">
+        <div class="container">
+            <div class="add-service-grid">
+                <!-- Sidebar -->
+                <div class="add-service-sidebar">
+                    <div class="sidebar-menu">
+                        <a href="dashboard.html" class="sidebar-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="profile.html" class="sidebar-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="my-services.html" class="sidebar-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>My Services</span>
+                        </a>
+                        <a href="bookings.html" class="sidebar-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Bookings</span>
+                        </a>
+                        <a href="chat.html" class="sidebar-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Messages</span>
+                            <span class="notification-badge">3</span>
+                        </a>
+                        <a href="earnings.html" class="sidebar-item">
+                            <i class="fas fa-rupee-sign"></i>
+                            <span>Earnings</span>
+                        </a>
+                        <a href="reviews.html" class="sidebar-item">
+                            <i class="fas fa-star"></i>
+                            <span>Reviews</span>
+                        </a>
+                        <a href="settings.html" class="sidebar-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="add-service-main">
+                    <!-- Add Service Header -->
+                    <div class="add-service-header">
+                        <div class="header-content">
+                            <h1>Add New Service</h1>
+                            <p>Create a new service offering to start earning</p>
+                        </div>
+                        <div class="header-actions">
+                            <a href="my-services.html" class="btn-outline">
+                                <i class="fas fa-arrow-left"></i>
+                                Back to Services
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service Form -->
+                    <form class="service-form" id="serviceForm">
+                        <!-- Basic Information -->
+                        <div class="form-section">
+                            <h3>Basic Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Service Title *</label>
+                                    <input type="text" name="title" id="title" placeholder="e.g., Calculus Tutoring" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Category *</label>
+                                    <select name="category" id="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="academic-tutoring">Academic Tutoring</option>
+                                        <option value="tech-services">Tech Services</option>
+                                        <option value="creative-design">Creative Design</option>
+                                        <option value="photography">Photography</option>
+                                        <option value="language-learning">Language Learning</option>
+                                        <option value="fitness-training">Fitness Training</option>
+                                        <option value="event-management">Event Management</option>
+                                        <option value="content-writing">Content Writing</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Service Description *</label>
+                                <textarea name="description" id="description" rows="4" placeholder="Describe your service in detail (minimum 20 characters)..." required minlength="20"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Duration *</label>
+                                    <select name="duration" id="duration" required>
+                                        <option value="">Select Duration</option>
+                                        <option value="30">30 minutes</option>
+                                        <option value="60">1 hour</option>
+                                        <option value="90">1.5 hours</option>
+                                        <option value="120">2 hours</option>
+                                        <option value="180">3 hours</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Price per Session *</label>
+                                    <div class="price-input">
+                                        <span class="currency">₹</span>
+                                        <input type="number" name="budget" id="budget" placeholder="1000" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service Details -->
+                        <div class="form-section">
+                            <h3>Service Details</h3>
+                            <div class="form-group">
+                                <label>What will students learn? *</label>
+                                <textarea name="learning_objectives" rows="3" placeholder="List the key topics or skills students will learn..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Prerequisites</label>
+                                <input type="text" name="prerequisites" placeholder="e.g., Basic knowledge of algebra">
+                            </div>
+                            <div class="form-group">
+                                <label>Materials Required</label>
+                                <input type="text" placeholder="e.g., Notebook, calculator, laptop">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Service Type *</label>
+                                    <select name="service_type" required>
+                                        <option value="">Select Type</option>
+                                        <option value="online">Online Only</option>
+                                        <option value="offline">In-Person Only</option>
+                                        <option value="both">Both Online & In-Person</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Maximum Students</label>
+                                    <select>
+                                        <option value="1">1 student</option>
+                                        <option value="2">2 students</option>
+                                        <option value="3">3 students</option>
+                                        <option value="4">4 students</option>
+                                        <option value="5">5 students</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Availability -->
+                        <div class="form-section">
+                            <h3>Availability</h3>
+                            <div class="availability-grid">
+                                <div class="day-schedule">
+                                    <h4>Monday</h4>
+                                    <div class="time-slots">
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="morning">
+                                            <span>Morning (6 AM - 12 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="afternoon">
+                                            <span>Afternoon (12 PM - 6 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="evening">
+                                            <span>Evening (6 PM - 12 AM)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="day-schedule">
+                                    <h4>Tuesday</h4>
+                                    <div class="time-slots">
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="morning">
+                                            <span>Morning (6 AM - 12 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="afternoon">
+                                            <span>Afternoon (12 PM - 6 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="evening">
+                                            <span>Evening (6 PM - 12 AM)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="day-schedule">
+                                    <h4>Wednesday</h4>
+                                    <div class="time-slots">
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="morning">
+                                            <span>Morning (6 AM - 12 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="afternoon">
+                                            <span>Afternoon (12 PM - 6 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="evening">
+                                            <span>Evening (6 PM - 12 AM)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="day-schedule">
+                                    <h4>Thursday</h4>
+                                    <div class="time-slots">
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="morning">
+                                            <span>Morning (6 AM - 12 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="afternoon">
+                                            <span>Afternoon (12 PM - 6 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="evening">
+                                            <span>Evening (6 PM - 12 AM)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="day-schedule">
+                                    <h4>Friday</h4>
+                                    <div class="time-slots">
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="morning">
+                                            <span>Morning (6 AM - 12 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="afternoon">
+                                            <span>Afternoon (12 PM - 6 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="evening">
+                                            <span>Evening (6 PM - 12 AM)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="day-schedule">
+                                    <h4>Saturday</h4>
+                                    <div class="time-slots">
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="morning">
+                                            <span>Morning (6 AM - 12 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="afternoon">
+                                            <span>Afternoon (12 PM - 6 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="evening">
+                                            <span>Evening (6 PM - 12 AM)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="day-schedule">
+                                    <h4>Sunday</h4>
+                                    <div class="time-slots">
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="morning">
+                                            <span>Morning (6 AM - 12 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="afternoon">
+                                            <span>Afternoon (12 PM - 6 PM)</span>
+                                        </label>
+                                        <label class="time-checkbox">
+                                            <input type="checkbox" value="evening">
+                                            <span>Evening (6 PM - 12 AM)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Media & Portfolio -->
+                        <div class="form-section">
+                            <h3>Media & Portfolio</h3>
+                            <div class="form-group">
+                                <label>Service Images</label>
+                                <div class="image-upload">
+                                    <div class="upload-area">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <p>Drag and drop images here or click to browse</p>
+                                        <input type="file" multiple accept="image/*">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Portfolio Links</label>
+                                <input type="url" placeholder="https://yourportfolio.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Sample Work</label>
+                                <textarea rows="3" placeholder="Describe your previous work or achievements..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Terms & Conditions -->
+                        <div class="form-section">
+                            <h3>Terms & Conditions</h3>
+                            <div class="terms-agreement">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span class="checkmark"></span>
+                                    I confirm that I have the necessary skills and qualifications to provide this service
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span class="checkmark"></span>
+                                    I understand that my service will be reviewed before going live
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <button type="button" class="btn-outline btn-large">Save as Draft</button>
+                            <button type="submit" class="btn-primary btn-large">Submit for Review</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GigCampus</h3>
+                    <p>Connecting students across India to create opportunities and build communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="academic-tutoring.html">Tutoring</a></li>
+                        <li><a href="creative-design.html">Design</a></li>
+                        <li><a href="tech-services.html">Programming</a></li>
+                        <li><a href="photography.html">Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">hello@gigcampus.in</a></li>
+                        <li><a href="#">+91 98765 43210</a></li>
+                        <li><a href="#">Mumbai, Maharashtra</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GigCampus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/script.js"></script>
+    
+    <script>
+        // Add Service Form Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check authentication
+            if (!api.isAuthenticated()) {
+                showNotification('Please sign in to add a service', 'warning');
+                setTimeout(() => {
+                    window.location.href = '/templates/signin.html';
+                }, 2000);
+                return;
+            }
+
+            const serviceForm = document.getElementById('serviceForm');
+            if (serviceForm) {
+                serviceForm.addEventListener('submit', handleServiceSubmission);
+            }
+        });
+
+        async function handleServiceSubmission(event) {
+            event.preventDefault();
+            
+            // Double-check authentication
+            if (!api.isAuthenticated()) {
+                showNotification('Please sign in to create a service', 'error');
+                setTimeout(() => {
+                    window.location.href = '/templates/signin.html';
+                }, 2000);
+                return;
+            }
+            
+            const formData = new FormData(event.target);
+            
+            // Convert form data to project data format
+            const serviceType = formData.get('service_type');
+            const prerequisites = formData.get('prerequisites');
+            const learningObjectives = formData.get('learning_objectives');
+            
+            // Build requirements array
+            const requirements = [];
+            if (prerequisites) requirements.push(prerequisites);
+            if (learningObjectives) requirements.push(`Learning: ${learningObjectives}`);
+            
+            const projectData = {
+                title: formData.get('title'),
+                description: formData.get('description'),
+                category: formData.get('category'),
+                budget: parseFloat(formData.get('budget')),
+                budgetType: 'hourly', // Services are typically hourly
+                isRemote: serviceType === 'online' || serviceType === 'both',
+                requirements: requirements,
+                priority: 'medium',
+                isUrgent: false
+            };
+
+            // Validate required fields
+            if (!projectData.title || projectData.title.length < 5) {
+                showNotification('Title must be at least 5 characters long', 'error');
+                return;
+            }
+            
+            if (!projectData.description || projectData.description.length < 20) {
+                showNotification('Description must be at least 20 characters long', 'error');
+                return;
+            }
+            
+            if (!projectData.category) {
+                showNotification('Please select a category', 'error');
+                return;
+            }
+            
+            if (!projectData.budget || projectData.budget <= 0) {
+                showNotification('Please enter a valid budget amount', 'error');
+                return;
+            }
+
+            try {
+                showLoading(true);
+                
+                console.log('Creating service with data:', projectData);
+                console.log('User authenticated:', api.isAuthenticated());
+                console.log('Auth token:', api.token ? 'Present' : 'Missing');
+                
+                const response = await api.createProject(projectData);
+                
+                showLoading(false);
+                showNotification('Service created successfully!', 'success');
+                
+                // Redirect to my-services page
+                setTimeout(() => {
+                    window.location.href = '/templates/my-services.html';
+                }, 2000);
+                
+            } catch (error) {
+                showLoading(false);
+                console.error('Service creation error details:', {
+                    message: error.message,
+                    stack: error.stack,
+                    projectData: projectData,
+                    isAuthenticated: api.isAuthenticated(),
+                    hasToken: !!api.token
+                });
+                
+                // Show more specific error message
+                let errorMessage = 'Failed to create service';
+                if (error.message.includes('401') || error.message.includes('Unauthorized')) {
+                    errorMessage = 'Please sign in to create a service';
+                } else if (error.message.includes('400')) {
+                    errorMessage = 'Please check all required fields are filled correctly';
+                } else if (error.message) {
+                    errorMessage = error.message;
+                }
+                
+                showNotification(errorMessage, 'error');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Test</title>
+</head>
+<body>
+    <h1>Dashboard Test</h1>
+    <div id="user-info">Loading...</div>
+    <div id="debug-output"></div>
+
+    <script src="../static/js/api.js"></script>
+    <script>
+        // Initialize API
+        const api = new GigCampusAPI();
+        
+        async function testDashboard() {
+            const debugOutput = document.getElementById('debug-output');
+            const userInfo = document.getElementById('user-info');
+            
+            function log(message) {
+                console.log(message);
+                debugOutput.innerHTML += '<div>' + message + '</div>';
+            }
+            
+            try {
+                log('🔍 Testing dashboard...');
+                log('Token exists: ' + !!api.token);
+                log('Is authenticated: ' + api.isAuthenticated());
+                
+                if (!api.isAuthenticated()) {
+                    log('❌ Not authenticated - redirecting');
+                    userInfo.textContent = 'Not authenticated';
+                    return;
+                }
+                
+                log('Making getProfile() call...');
+                const profile = await api.getProfile();
+                log('✅ Profile received: ' + JSON.stringify(profile));
+                
+                if (profile && profile.firstName) {
+                    userInfo.textContent = 'Hello, ' + profile.firstName + ' ' + (profile.lastName || '');
+                    log('✅ Name displayed successfully');
+                } else {
+                    userInfo.textContent = 'Profile loaded but no name found';
+                    log('❌ No firstName in profile: ' + JSON.stringify(profile));
+                }
+                
+            } catch (error) {
+                log('❌ Error: ' + error.message);
+                userInfo.textContent = 'Error: ' + error.message;
+            }
+        }
+        
+        // Run test when page loads
+        document.addEventListener('DOMContentLoaded', testDashboard);
+    </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users - GigCampus Admin</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .admin-header {
+            background: #6366f1;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .users-table {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .table-header {
+            background: #f8fafc;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-weight: 600;
+        }
+        
+        .users-grid {
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        
+        .user-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: white;
+        }
+        
+        .user-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .user-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #6366f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .user-info h3 {
+            margin: 0;
+            color: #1a202c;
+        }
+        
+        .user-info p {
+            margin: 0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .user-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .user-detail {
+            padding: 0.5rem;
+            background: #f8fafc;
+            border-radius: 4px;
+        }
+        
+        .user-detail label {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .user-detail span {
+            display: block;
+            color: #1a202c;
+            font-weight: 500;
+        }
+        
+        .loading-state {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            margin: 0;
+            font-size: 2rem;
+            color: #6366f1;
+        }
+        
+        .stat-card p {
+            margin: 0.5rem 0 0 0;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-users"></i> Registered Users</h1>
+            <p>View all registered users in the GigCampus database</p>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <h3 id="total-users">-</h3>
+                <p>Total Users</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="students-count">-</h3>
+                <p>Students</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="freelancers-count">-</h3>
+                <p>Freelancers</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="new-today">-</h3>
+                <p>Registered Today</p>
+            </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="users-table">
+            <div class="table-header">
+                <h2>All Registered Users</h2>
+            </div>
+            <div class="users-grid" id="users-grid">
+                <div class="loading-state">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading users...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/api.js"></script>
+    <script>
+        let allUsers = [];
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadAllUsers();
+        });
+
+        async function loadAllUsers() {
+            try {
+                // Get users from the admin endpoint
+                const response = await fetch('http://localhost:5000/api/users/admin/all');
+                if (response.ok) {
+                    const data = await response.json();
+                    allUsers = data.users || data;
+                } else {
+                    throw new Error(`API responded with status: ${response.status}`);
+                }
+                
+                displayUsers(allUsers);
+                updateStatistics(allUsers);
+                
+            } catch (error) {
+                console.error('Error loading users:', error);
+                displayError();
+            }
+        }
+
+        function displayUsers(users) {
+            const usersGrid = document.getElementById('users-grid');
+            
+            if (!users || users.length === 0) {
+                usersGrid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-users-slash"></i>
+                        <h3>No Users Found</h3>
+                        <p>No registered users in the database yet.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            usersGrid.innerHTML = users.map(user => `
+                <div class="user-card">
+                    <div class="user-header">
+                        <div class="user-avatar">
+                            ${(user.firstName || user.username || 'U').charAt(0).toUpperCase()}
+                        </div>
+                        <div class="user-info">
+                            <h3>${user.firstName && user.lastName ? 
+                                `${user.firstName} ${user.lastName}` : 
+                                user.username || 'Unknown'}</h3>
+                            <p>${user.email}</p>
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <div class="user-detail">
+                            <label>Username</label>
+                            <span>${user.username || 'N/A'}</span>
+                        </div>
+                        <div class="user-detail">
+                            <label>University</label>
+                            <span>${user.university || 'N/A'}</span>
+                        </div>
+                        <div class="user-detail">
+                            <label>Course</label>
+                            <span>${user.course || 'N/A'}</span>
+                        </div>
+                        <div class="user-detail">
+                            <label>Type</label>
+                            <span>${user.isStudent ? 'Student' : 'Freelancer'}</span>
+                        </div>
+                        <div class="user-detail">
+                            <label>Phone</label>
+                            <span>${user.phone || 'N/A'}</span>
+                        </div>
+                        <div class="user-detail">
+                            <label>Joined</label>
+                            <span>${new Date(user.createdAt).toLocaleDateString()}</span>
+                        </div>
+                        <div class="user-detail">
+                            <label>Status</label>
+                            <span>${user.status || 'Active'}</span>
+                        </div>
+                        <div class="user-detail">
+                            <label>Reputation</label>
+                            <span>${user.reputation || 0}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateStatistics(users) {
+            const totalUsers = users.length;
+            const studentsCount = users.filter(u => u.isStudent).length;
+            const freelancersCount = totalUsers - studentsCount;
+            
+            const today = new Date().toDateString();
+            const newToday = users.filter(u => 
+                new Date(u.createdAt).toDateString() === today
+            ).length;
+
+            document.getElementById('total-users').textContent = totalUsers;
+            document.getElementById('students-count').textContent = studentsCount;
+            document.getElementById('freelancers-count').textContent = freelancersCount;
+            document.getElementById('new-today').textContent = newToday;
+        }
+
+        function displayError() {
+            const usersGrid = document.getElementById('users-grid');
+            usersGrid.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Error Loading Users</h3>
+                    <p>Unable to fetch user data. Please check the database connection.</p>
+                    <button onclick="location.reload()" class="btn-primary" style="margin-top: 1rem;">
+                        <i class="fas fa-refresh"></i> Retry
+                    </button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

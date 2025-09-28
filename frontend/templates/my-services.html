@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Services - GigCampus</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html"><h2>GigCampus</h2></a>
+      </div>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-buttons">
+        <div class="user-menu">
+          <div class="user-avatar">
+            <div class="avatar-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <div class="user-dropdown">
+            <a href="dashboard.html" class="dropdown-item">
+              <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+            <a href="profile.html" class="dropdown-item">
+              <i class="fas fa-user-edit"></i> Profile
+            </a>
+            <a href="services.html" class="dropdown-item active">
+              <i class="fas fa-briefcase"></i> My Services
+            </a>
+            <a href="chat.html" class="dropdown-item">
+              <i class="fas fa-comments"></i> Messages
+            </a>
+            <a href="earnings.html" class="dropdown-item">
+              <i class="fas fa-rupee-sign"></i> Earnings
+            </a>
+            <a href="settings.html" class="dropdown-item">
+              <i class="fas fa-cog"></i> Settings
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="index.html" class="dropdown-item">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Services Section -->
+  <section class="profile-section">
+    <div class="container">
+      <div class="profile-grid">
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+          <div class="sidebar-menu">
+            <a href="dashboard.html" class="sidebar-item">
+              <i class="fas fa-tachometer-alt"></i> <span>Dashboard</span>
+            </a>
+            <a href="profile.html" class="sidebar-item">
+              <i class="fas fa-user-edit"></i> <span>Profile</span>
+            </a>
+            <a href="services.html" class="sidebar-item active">
+              <i class="fas fa-briefcase"></i> <span>My Services</span>
+            </a>
+            <a href="bookings.html" class="sidebar-item">
+              <i class="fas fa-calendar-check"></i> <span>Bookings</span>
+            </a>
+            <a href="chat.html" class="sidebar-item">
+              <i class="fas fa-comments"></i> <span>Messages</span>
+            </a>
+            <a href="earnings.html" class="sidebar-item">
+              <i class="fas fa-rupee-sign"></i> <span>Earnings</span>
+            </a>
+            <a href="reviews.html" class="sidebar-item">
+              <i class="fas fa-star"></i> <span>Reviews</span>
+            </a>
+            <a href="settings.html" class="sidebar-item">
+              <i class="fas fa-cog"></i> <span>Settings</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="profile-main">
+          <div class="profile-header">
+            <h1>My Services</h1>
+            <a href="/templates/add-service.html" class="btn-primary">
+              <i class="fas fa-plus"></i> Add New Service
+            </a>
+          </div>
+
+          <!-- Services List -->
+          <div class="services-grid" id="services-grid">
+            <div class="service-card">
+              <div class="service-header">
+                <h4>Calculus Tutoring</h4>
+                <span class="service-status active">Active</span>
+              </div>
+              <p>Comprehensive calculus tutoring covering derivatives, integrals, and applications.</p>
+              <div class="service-meta">
+                <span><i class="fas fa-rupee-sign"></i> ₹1000/hr</span>
+                <span><i class="fas fa-clock"></i> 2 hours</span>
+                <span><i class="fas fa-users"></i> 15 students</span>
+              </div>
+              <div class="service-actions">
+                <button class="btn-outline btn-small">Edit</button>
+                <button class="btn-primary btn-small">View Details</button>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-header">
+                <h4>Python Programming</h4>
+                <span class="service-status active">Active</span>
+              </div>
+              <p>Learn Python from basics to advanced concepts with hands-on projects.</p>
+              <div class="service-meta">
+                <span><i class="fas fa-rupee-sign"></i> ₹1200/hr</span>
+                <span><i class="fas fa-clock"></i> 1.5 hours</span>
+                <span><i class="fas fa-users"></i> 8 students</span>
+              </div>
+              <div class="service-actions">
+                <button class="btn-outline btn-small">Edit</button>
+                <button class="btn-primary btn-small">View Details</button>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-header">
+                <h4>Data Structures</h4>
+                <span class="service-status inactive">Inactive</span>
+              </div>
+              <p>Master data structures and algorithms with practical examples.</p>
+              <div class="service-meta">
+                <span><i class="fas fa-rupee-sign"></i> ₹1500/hr</span>
+                <span><i class="fas fa-clock"></i> 2 hours</span>
+                <span><i class="fas fa-users"></i> 5 students</span>
+              </div>
+              <div class="service-actions">
+                <button class="btn-outline btn-small">Edit</button>
+                <button class="btn-primary btn-small">View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>GigCampus</h3>
+          <p>Connecting students across India to create opportunities and build communities.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="academic-tutoring.html">Tutoring</a></li>
+            <li><a href="creative-design.html">Design</a></li>
+            <li><a href="tech-services.html">Programming</a></li>
+            <li><a href="photography.html">Photography</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Safety</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">hello@gigcampus.in</a></li>
+            <li><a href="#">+91 98765 43210</a></li>
+            <li><a href="#">Mumbai, Maharashtra</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 GigCampus. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/auth.js"></script>
+  <script src="/static/js/script.js"></script>
+  
+  <script>
+    // My Services Page Handler
+    document.addEventListener('DOMContentLoaded', async function() {
+      // Check authentication
+      if (!api.isAuthenticated()) {
+        showNotification('Please sign in to view your services', 'warning');
+        setTimeout(() => {
+          window.location.href = '/templates/signin.html';
+        }, 2000);
+        return;
+      }
+
+      // Load user services
+      await loadUserServices();
+    });
+
+    async function loadUserServices() {
+      try {
+        showLoading(true);
+        
+        console.log('Loading user services...');
+        console.log('Authentication status:', {
+          isAuthenticated: api.isAuthenticated(),
+          hasToken: !!api.token,
+          tokenLength: api.token ? api.token.length : 0
+        });
+        
+        // Get user projects (services)
+        const response = await api.getProjects({ userId: 'me' });
+        console.log('API response:', response);
+        
+        // Handle both direct array and object with projects property
+        const projects = response.projects || response;
+        console.log('Projects array:', projects);
+        
+        showLoading(false);
+        displayServices(projects);
+        
+      } catch (error) {
+        showLoading(false);
+        console.error('Error loading services:', {
+          message: error.message,
+          stack: error.stack,
+          isAuthenticated: api.isAuthenticated(),
+          hasToken: !!api.token
+        });
+        
+        // Show more specific error message
+        let errorMessage = 'Failed to load services';
+        if (error.message.includes('401') || error.message.includes('Unauthorized')) {
+          errorMessage = 'Please sign in to view your services';
+          setTimeout(() => {
+            window.location.href = '/templates/signin.html';
+          }, 2000);
+        } else if (error.message) {
+          errorMessage = error.message;
+        }
+        
+        showNotification(errorMessage, 'error');
+        
+        // Display error state
+        displayServicesError();
+      }
+    }
+
+    function displayServices(projects) {
+      const servicesGrid = document.getElementById('services-grid');
+      
+      if (!projects || projects.length === 0) {
+        servicesGrid.innerHTML = `
+          <div class="empty-state">
+            <i class="fas fa-briefcase"></i>
+            <h3>No Services Yet</h3>
+            <p>You haven't created any services yet. Start by adding your first service!</p>
+            <a href="/templates/add-service.html" class="btn-primary">Add Your First Service</a>
+          </div>
+        `;
+        return;
+      }
+
+      servicesGrid.innerHTML = projects.map(project => `
+        <div class="service-card">
+          <div class="service-header">
+            <h4>${project.title}</h4>
+            <span class="service-status ${project.status || 'active'}">${project.status || 'Active'}</span>
+          </div>
+          <p>${project.description}</p>
+          <div class="service-meta">
+            <span><i class="fas fa-rupee-sign"></i> ₹${project.budget}/${project.budgetType === 'hourly' ? 'hr' : 'project'}</span>
+            <span><i class="fas fa-calendar"></i> ${new Date(project.createdAt).toLocaleDateString()}</span>
+            <span><i class="fas fa-eye"></i> ${project.views || 0} views</span>
+          </div>
+          <div class="service-actions">
+            <button class="btn-outline btn-small" onclick="editService(${project.id})">Edit</button>
+            <button class="btn-primary btn-small" onclick="viewService(${project.id})">View Details</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function displayServicesError() {
+      const servicesGrid = document.getElementById('services-grid');
+      servicesGrid.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h3>Error Loading Services</h3>
+          <p>Unable to load your services. Please try refreshing the page.</p>
+          <button onclick="location.reload()" class="btn-primary" style="margin-top: 1rem;">
+            <i class="fas fa-refresh"></i> Retry
+          </button>
+        </div>
+      `;
+    }
+
+    function editService(serviceId) {
+      // TODO: Implement edit functionality
+      showNotification('Edit functionality coming soon!', 'info');
+    }
+
+    function viewService(serviceId) {
+      // TODO: Implement view details functionality
+      showNotification('View details functionality coming soon!', 'info');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Services API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .service {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Services API Test</h1>
+    
+    <button onclick="testAPI()">Test API</button>
+    <button onclick="testFiltering()">Test Category Filtering</button>
+    
+    <div id="results"></div>
+    
+    <script>
+        async function testAPI() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Loading...</p>';
+            
+            try {
+                console.log('🔄 Testing API...');
+                const response = await fetch('http://localhost:5000/api/projects');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log('✅ API Response:', data);
+                
+                const services = data.projects || data || [];
+                
+                resultsDiv.innerHTML = `
+                    <div class="success">
+                        <h3>✅ API Test Successful!</h3>
+                        <p><strong>Total Services:</strong> ${services.length}</p>
+                        <p><strong>Response Structure:</strong> ${data.projects ? 'data.projects' : 'direct array'}</p>
+                    </div>
+                    <h3>Services:</h3>
+                    ${services.map(service => `
+                        <div class="service">
+                            <h4>${service.title}</h4>
+                            <p><strong>Category:</strong> ${service.category}</p>
+                            <p><strong>Provider:</strong> ${service.poster ? `${service.poster.firstName} ${service.poster.lastName}` : 'Unknown'}</p>
+                            <p><strong>Budget:</strong> ₹${service.budget} / ${service.budgetType}</p>
+                            <p><strong>Description:</strong> ${service.description.substring(0, 100)}...</p>
+                        </div>
+                    `).join('')}
+                `;
+                
+            } catch (error) {
+                console.error('❌ API Test Failed:', error);
+                resultsDiv.innerHTML = `
+                    <div class="error">
+                        <h3>❌ API Test Failed</h3>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p><strong>Check:</strong> Make sure backend server is running on port 5000</p>
+                    </div>
+                `;
+            }
+        }
+        
+        async function testFiltering() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Testing category filtering...</p>';
+            
+            try {
+                const response = await fetch('http://localhost:5000/api/projects');
+                const data = await response.json();
+                const services = data.projects || data || [];
+                
+                // Get unique categories
+                const categories = [...new Set(services.map(s => s.category))];
+                
+                resultsDiv.innerHTML = `
+                    <div class="success">
+                        <h3>✅ Filtering Test</h3>
+                        <p><strong>Available Categories:</strong></p>
+                        <ul>
+                            ${categories.map(cat => `
+                                <li><strong>${cat}:</strong> ${services.filter(s => s.category === cat).length} services</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+                
+            } catch (error) {
+                console.error('❌ Filtering Test Failed:', error);
+                resultsDiv.innerHTML = `<div class="error">Filtering test failed: ${error.message}</div>`;
+            }
+        }
+        
+        // Auto-test on load
+        window.addEventListener('load', testAPI);
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test localStorage</title>
+</head>
+<body>
+    <h1>localStorage Test</h1>
+    <p>Check console for results</p>
+    
+    <button onclick="clearAll()" style="background: red; color: white; padding: 10px; margin: 10px;">Clear All localStorage & Force Fresh Login</button>
+    <button onclick="location.reload()">Refresh Test</button>
+    
+    <script>
+    // Test what's in localStorage
+    console.log('🔍 Testing localStorage content...');
+    console.log('');
+
+    console.log('📦 All localStorage items:');
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        console.log(`   ${key}: ${value}`);
+    }
+
+    console.log('');
+    console.log('🔑 Auth Token:', localStorage.getItem('authToken'));
+    console.log('👤 User Info:', localStorage.getItem('userInfo'));
+
+    const userInfoStr = localStorage.getItem('userInfo');
+    if (userInfoStr) {
+        try {
+            const userInfo = JSON.parse(userInfoStr);
+            console.log('');
+            console.log('✅ Parsed User Info:');
+            console.log('   firstName:', userInfo.firstName);
+            console.log('   lastName:', userInfo.lastName);
+            console.log('   username:', userInfo.username);
+            console.log('   email:', userInfo.email);
+        } catch (e) {
+            console.log('❌ Could not parse user info:', e);
+        }
+    } else {
+        console.log('❌ No user info in localStorage');
+    }
+    
+    function clearAll() {
+        localStorage.clear();
+        alert('✅ All localStorage cleared! Please sign in again.');
+        window.location.href = '/templates/signin.html';
+    }
+    </script>
+</body>
+</html>

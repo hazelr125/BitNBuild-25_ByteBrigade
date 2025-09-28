@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Services - GigCampus</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>GigCampus</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="signin.html" class="btn-secondary">Sign In</a>
+                <a href="getstarted.html" class="btn-primary">Get Started</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Header -->
+    <section class="search-header">
+        <div class="container">
+            <div class="search-hero">
+                <h1>Find the Perfect Service</h1>
+                <p>Search from thousands of services offered by students across India</p>
+                
+                <!-- Advanced Search Form -->
+                <div class="search-form-container">
+                    <form class="advanced-search-form" id="searchForm">
+                        <div class="search-input-group">
+                            <div class="search-input">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="searchQuery" placeholder="What service are you looking for?" autocomplete="off">
+                                <button type="submit" class="search-btn">Search</button>
+                            </div>
+                        </div>
+                        
+                        <div class="search-filters">
+                            <div class="filter-group">
+                                <label>Category</label>
+                                <select id="categoryFilter">
+                                    <option value="">All Categories</option>
+                                    <option value="tutoring">Academic Tutoring</option>
+                                    <option value="tech">Tech Services</option>
+                                    <option value="design">Creative Design</option>
+                                    <option value="photography">Photography</option>
+                                    <option value="language">Language Learning</option>
+                                    <option value="fitness">Fitness Training</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label>Price Range</label>
+                                <select id="priceFilter">
+                                    <option value="">Any Price</option>
+                                    <option value="0-500">₹0 - ₹500/hr</option>
+                                    <option value="500-1000">₹500 - ₹1000/hr</option>
+                                    <option value="1000-2000">₹1000 - ₹2000/hr</option>
+                                    <option value="2000+">₹2000+/hr</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label>Rating</label>
+                                <select id="ratingFilter">
+                                    <option value="">Any Rating</option>
+                                    <option value="5">5 Stars</option>
+                                    <option value="4">4+ Stars</option>
+                                    <option value="3">3+ Stars</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label>Location</label>
+                                <select id="locationFilter">
+                                    <option value="">Any Location</option>
+                                    <option value="online">Online Only</option>
+                                    <option value="mumbai">Mumbai</option>
+                                    <option value="delhi">Delhi</option>
+                                    <option value="bangalore">Bangalore</option>
+                                    <option value="chennai">Chennai</option>
+                                    <option value="hyderabad">Hyderabad</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label>Availability</label>
+                                <select id="availabilityFilter">
+                                    <option value="">Any Time</option>
+                                    <option value="morning">Morning (6 AM - 12 PM)</option>
+                                    <option value="afternoon">Afternoon (12 PM - 6 PM)</option>
+                                    <option value="evening">Evening (6 PM - 12 AM)</option>
+                                    <option value="weekend">Weekend Only</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-actions">
+                                <button type="button" class="btn-outline" id="clearFilters">Clear Filters</button>
+                                <button type="submit" class="btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results -->
+    <section class="search-results">
+        <div class="container">
+            <div class="results-header">
+                <div class="results-info">
+                    <h2>Search Results</h2>
+                    <p id="resultsCount">Showing 24 services</p>
+                </div>
+                <div class="results-sort">
+                    <label>Sort by:</label>
+                    <select id="sortBy">
+                        <option value="relevance">Relevance</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="results-grid" id="results-grid">
+                <!-- Search Result Cards -->
+                <div class="result-card" data-category="tutoring" data-price="1000" data-rating="4.9" data-location="mumbai">
+                    <div class="result-header">
+                        <div class="result-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            <h3>Sarah Chen</h3>
+                            <p class="result-major">Computer Science, IIT Bombay</p>
+                            <div class="result-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.9 (127 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="result-price">₹1000/hr</div>
+                    </div>
+                    <div class="result-content">
+                        <h4>Calculus & Linear Algebra Tutoring</h4>
+                        <p>Expert tutoring in Calculus, Linear Algebra, and Statistics. 3+ years experience helping students excel in mathematics.</p>
+                        <div class="result-tags">
+                            <span class="tag">Calculus</span>
+                            <span class="tag">Linear Algebra</span>
+                            <span class="tag">Statistics</span>
+                            <span class="tag">Online</span>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn-primary btn-small">Book Now</button>
+                            <button class="btn-outline btn-small">Message</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card" data-category="tech" data-price="1500" data-rating="4.8" data-location="online">
+                    <div class="result-header">
+                        <div class="result-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            <h3>Arjun Patel</h3>
+                            <p class="result-major">Software Engineering, IIT Delhi</p>
+                            <div class="result-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.8 (89 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="result-price">₹1500/hr</div>
+                    </div>
+                    <div class="result-content">
+                        <h4>Full-Stack Web Development</h4>
+                        <p>React, Node.js, MongoDB expert. Build complete web applications from scratch with modern technologies.</p>
+                        <div class="result-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Online</span>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn-primary btn-small">Book Now</button>
+                            <button class="btn-outline btn-small">Message</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card" data-category="design" data-price="800" data-rating="4.7" data-location="mumbai">
+                    <div class="result-header">
+                        <div class="result-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            <h3>Priya Sharma</h3>
+                            <p class="result-major">Graphic Design, NID Ahmedabad</p>
+                            <div class="result-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.7 (65 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="result-price">₹800/hr</div>
+                    </div>
+                    <div class="result-content">
+                        <h4>Logo Design & Brand Identity</h4>
+                        <p>Professional logo design and complete brand identity packages. Adobe Creative Suite expert with 2+ years experience.</p>
+                        <div class="result-tags">
+                            <span class="tag">Logo Design</span>
+                            <span class="tag">Branding</span>
+                            <span class="tag">Adobe Illustrator</span>
+                            <span class="tag">Mumbai</span>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn-primary btn-small">Book Now</button>
+                            <button class="btn-outline btn-small">Message</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card" data-category="photography" data-price="2000" data-rating="4.9" data-location="delhi">
+                    <div class="result-header">
+                        <div class="result-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            <h3>Rahul Kumar</h3>
+                            <p class="result-major">Photography, Delhi University</p>
+                            <div class="result-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.9 (78 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="result-price">₹2000/hr</div>
+                    </div>
+                    <div class="result-content">
+                        <h4>Portrait & Event Photography</h4>
+                        <p>Professional photography for portraits, events, and special occasions. High-quality equipment and editing included.</p>
+                        <div class="result-tags">
+                            <span class="tag">Portrait</span>
+                            <span class="tag">Events</span>
+                            <span class="tag">Professional</span>
+                            <span class="tag">Delhi</span>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn-primary btn-small">Book Now</button>
+                            <button class="btn-outline btn-small">Message</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card" data-category="language" data-price="600" data-rating="4.8" data-location="online">
+                    <div class="result-header">
+                        <div class="result-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            <h3>Yuki Tanaka</h3>
+                            <p class="result-major">Japanese Studies, JNU</p>
+                            <div class="result-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.8 (45 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="result-price">₹600/hr</div>
+                    </div>
+                    <div class="result-content">
+                        <h4>Japanese Language Learning</h4>
+                        <p>Native Japanese speaker offering conversational Japanese lessons. JLPT preparation and cultural insights included.</p>
+                        <div class="result-tags">
+                            <span class="tag">Japanese</span>
+                            <span class="tag">JLPT Prep</span>
+                            <span class="tag">Conversation</span>
+                            <span class="tag">Online</span>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn-primary btn-small">Book Now</button>
+                            <button class="btn-outline btn-small">Message</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card" data-category="fitness" data-price="1200" data-rating="4.6" data-location="bangalore">
+                    <div class="result-header">
+                        <div class="result-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            <h3>Ananya Singh</h3>
+                            <p class="result-major">Sports Science, IISc Bangalore</p>
+                            <div class="result-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.6 (32 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="result-price">₹1200/hr</div>
+                    </div>
+                    <div class="result-content">
+                        <h4>Yoga & Fitness Training</h4>
+                        <p>Certified yoga instructor and fitness trainer. Personalized workout plans and nutrition guidance for all fitness levels.</p>
+                        <div class="result-tags">
+                            <span class="tag">Yoga</span>
+                            <span class="tag">Fitness</span>
+                            <span class="tag">Nutrition</span>
+                            <span class="tag">Bangalore</span>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn-primary btn-small">Book Now</button>
+                            <button class="btn-outline btn-small">Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more">
+                <button class="btn-outline btn-large">Load More Results</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GigCampus</h3>
+                    <p>Connecting students across India to create opportunities and build communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="academic-tutoring.html">Tutoring</a></li>
+                        <li><a href="creative-design.html">Design</a></li>
+                        <li><a href="tech-services.html">Programming</a></li>
+                        <li><a href="photography.html">Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">hello@gigcampus.in</a></li>
+                        <li><a href="#">+91 98765 43210</a></li>
+                        <li><a href="#">Mumbai, Maharashtra</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GigCampus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/script.js"></script>
+    
+    <script>
+        let allProjects = [];
+        let filteredProjects = [];
+
+        // Search Page Handler
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Initialize page
+            await loadAllServices();
+            
+            // Set up event listeners
+            setupEventListeners();
+        });
+
+        async function loadAllServices() {
+            try {
+                showLoading(true);
+                
+                // Get all projects (services)
+                allProjects = await api.getProjects();
+                filteredProjects = [...allProjects];
+                
+                showLoading(false);
+                displayResults(filteredProjects);
+                updateResultsCount(filteredProjects.length);
+                
+            } catch (error) {
+                showLoading(false);
+                console.error('Error loading services:', error);
+                showNotification('Failed to load services', 'error');
+                displayEmptyState();
+            }
+        }
+
+        function setupEventListeners() {
+            // Search form
+            const searchForm = document.querySelector('.search-form');
+            if (searchForm) {
+                searchForm.addEventListener('submit', handleSearch);
+            }
+            
+            // Filter dropdowns
+            const filters = ['categoryFilter', 'priceFilter', 'ratingFilter', 'locationFilter'];
+            filters.forEach(filterId => {
+                const filter = document.getElementById(filterId);
+                if (filter) {
+                    filter.addEventListener('change', applyFilters);
+                }
+            });
+            
+            // Sort dropdown
+            const sortBy = document.getElementById('sortBy');
+            if (sortBy) {
+                sortBy.addEventListener('change', applySorting);
+            }
+        }
+
+        function handleSearch(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const query = formData.get('query') || '';
+            
+            // Filter projects based on search query
+            if (query.trim()) {
+                filteredProjects = allProjects.filter(project => 
+                    project.title.toLowerCase().includes(query.toLowerCase()) ||
+                    project.description.toLowerCase().includes(query.toLowerCase())
+                );
+            } else {
+                filteredProjects = [...allProjects];
+            }
+            
+            applyFilters();
+        }
+
+        function applyFilters() {
+            let results = [...filteredProjects];
+            
+            // Category filter
+            const category = document.getElementById('categoryFilter')?.value;
+            if (category) {
+                results = results.filter(project => project.category === category);
+            }
+            
+            // Price filter
+            const price = document.getElementById('priceFilter')?.value;
+            if (price) {
+                const [min, max] = price.includes('-') ? 
+                    price.split('-').map(p => parseInt(p)) : 
+                    price.includes('+') ? [parseInt(price), Infinity] : [0, Infinity];
+                
+                results = results.filter(project => 
+                    project.budget >= min && (max === Infinity || project.budget <= max)
+                );
+            }
+            
+            applySorting(results);
+        }
+
+        function applySorting(customResults = null) {
+            let results = customResults || filteredProjects;
+            const sortBy = document.getElementById('sortBy')?.value;
+            
+            switch (sortBy) {
+                case 'price-low':
+                    results.sort((a, b) => a.budget - b.budget);
+                    break;
+                case 'price-high':
+                    results.sort((a, b) => b.budget - a.budget);
+                    break;
+                case 'newest':
+                    results.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                    break;
+                case 'rating':
+                    results.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+                    break;
+                default: // relevance
+                    break;
+            }
+            
+            displayResults(results);
+            updateResultsCount(results.length);
+        }
+
+        function displayResults(projects) {
+            const resultsGrid = document.getElementById('results-grid');
+            
+            if (!projects || projects.length === 0) {
+                displayEmptyState();
+                return;
+            }
+
+            resultsGrid.innerHTML = projects.map(project => `
+                <div class="result-card" data-project-id="${project.id}">
+                    <div class="result-header">
+                        <div class="result-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            <h3>${project.User ? project.User.firstName + ' ' + project.User.lastName : 'Service Provider'}</h3>
+                            <p class="result-major">${project.User ? project.User.course + ', ' + project.User.university : 'Experienced Professional'}</p>
+                            <div class="result-rating">
+                                <div class="stars">
+                                    ${generateStars(project.rating || 4.5)}
+                                </div>
+                                <span>${(project.rating || 4.5).toFixed(1)} (${project.reviewCount || 0} reviews)</span>
+                            </div>
+                        </div>
+                        <div class="result-price">₹${project.budget}/${project.budgetType === 'hourly' ? 'hr' : 'project'}</div>
+                    </div>
+                    <div class="result-content">
+                        <h4>${project.title}</h4>
+                        <p>${project.description.substring(0, 150)}${project.description.length > 150 ? '...' : ''}</p>
+                        <div class="result-tags">
+                            <span class="tag">${project.category}</span>
+                            <span class="tag">${project.isRemote ? 'Online' : 'In-Person'}</span>
+                            ${project.budgetType === 'hourly' ? '<span class="tag">Hourly</span>' : '<span class="tag">Fixed Price</span>'}
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn-primary btn-small" onclick="bookService(${project.id})">Book Now</button>
+                            <button class="btn-outline btn-small" onclick="messageProvider(${project.id})">Message</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        function displayEmptyState() {
+            const resultsGrid = document.getElementById('results-grid');
+            resultsGrid.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-search"></i>
+                    <h3>No Services Found</h3>
+                    <p>Try adjusting your search criteria or browse all available services.</p>
+                </div>
+            `;
+        }
+
+        function updateResultsCount(count) {
+            const resultsCount = document.getElementById('resultsCount');
+            if (resultsCount) {
+                resultsCount.textContent = `Showing ${count} service${count !== 1 ? 's' : ''}`;
+            }
+        }
+
+        function bookService(projectId) {
+            // TODO: Implement booking functionality
+            showNotification('Booking functionality coming soon!', 'info');
+        }
+
+        function messageProvider(projectId) {
+            // TODO: Implement messaging functionality
+            showNotification('Messaging functionality coming soon!', 'info');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigCampus - University Marketplace</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>GigCampus</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+                <div class="nav-buttons">
+                    <a href="signin.html" class="btn-secondary">Sign In</a>
+                    <a href="getstarted.html" class="btn-primary">Get Started</a>
+                    <a href="dashboard.html" class="btn-outline">Dashboard</a>
+                    <a href="search.html" class="btn-outline">Search</a>
+                </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Connect, Learn, and Earn on 
+                    <span class="gradient-text">Campus</span>
+                </h1>
+                <p class="hero-description">
+                    The ultimate marketplace for university students to offer services, 
+                    find gigs, and build their professional network. From tutoring to 
+                    graphic design, make money doing what you love.
+                </p>
+                <div class="hero-buttons">
+                    <a href="getstarted.html" class="btn-primary btn-large">Start Earning</a>
+                    <a href="search.html" class="btn-outline btn-large">Browse Services</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>10K+</h3>
+                        <p>Active Students</p>
+                    </div>
+                    <div class="stat">
+                        <h3>5K+</h3>
+                        <p>Services Offered</p>
+                    </div>
+                    <div class="stat">
+                        <h3>98%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-graphic">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Tutoring</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Design</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-code"></i>
+                        <span>Programming</span>
+                    </div>
+                    <div class="floating-card card-4">
+                        <i class="fas fa-camera"></i>
+                        <span>Photography</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Services</h2>
+                <p>Discover what students are offering on campus</p>
+            </div>
+            <div class="services-grid">
+                <a href="academic-tutoring.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Academic Tutoring</h3>
+                    <p>Get help with coursework, exam prep, and study strategies from top-performing students.</p>
+                    <div class="service-price">₹500-1000/hr</div>
+                </a>
+                <a href="tech-services.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Tech Services</h3>
+                    <p>Website development, app creation, and technical support from computer science students.</p>
+                    <div class="service-price">₹800-2000/hr</div>
+                </a>
+                <a href="creative-design.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Creative Design</h3>
+                    <p>Logo design, social media graphics, and branding from talented design students.</p>
+                    <div class="service-price">₹600-1500/hr</div>
+                </a>
+                <a href="photography.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Photography</h3>
+                    <p>Event photography, portraits, and content creation from skilled photography students.</p>
+                    <div class="service-price">₹1000-2500/hr</div>
+                </a>
+                <a href="language-learning.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Language Learning</h3>
+                    <p>Learn new languages from native speakers and language students on campus.</p>
+                    <div class="service-price">₹600-1200/hr</div>
+                </a>
+                <a href="fitness-training.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Fitness Training</h3>
+                    <p>Personal training, yoga classes, and fitness coaching from certified student trainers.</p>
+                    <div class="service-price">₹800-1800/hr</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-content">
+                <div class="features-text">
+                    <h2>Why Choose GigCampus?</h2>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Secure & Verified</h3>
+                                <p>All students are verified with university email addresses and ID verification.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Flexible Scheduling</h3>
+                                <p>Set your own hours and work around your class schedule.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Quality Assurance</h3>
+                                <p>Built-in rating system ensures high-quality services and experiences.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Community Driven</h3>
+                                <p>Connect with fellow students and build lasting professional relationships.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="features-image">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-interface">
+                                <div class="app-header">
+                                    <div class="app-title">GigCampus</div>
+                                    <div class="app-status">Online</div>
+                                </div>
+                                <div class="app-content">
+                                    <div class="notification">
+                                        <i class="fas fa-bell"></i>
+                                        <span>New tutoring request!</span>
+                                    </div>
+                                    <div class="earnings">
+                                        <h4>This Week's Earnings</h4>
+                                        <div class="amount">₹247.50</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Students Say</h2>
+                <p>Real experiences from our community</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"GigCampus helped me earn over ₹2,000 last semester just by tutoring math. It's flexible and the students are great!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <span>Computer Science, MIT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I found amazing graphic design services for my startup. The quality was professional and the price was student-friendly."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Alex Rodriguez</h4>
+                            <span>Business, Stanford</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The photography services are incredible! Got professional headshots for my LinkedIn profile at a fraction of the cost."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Emma Thompson</h4>
+                            <span>Psychology, UCLA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Gig Journey?</h2>
+                <p>Join thousands of students already earning on GigCampus</p>
+                <div class="cta-buttons">
+                    <a href="getstarted.html" class="btn-primary btn-large">Sign Up Now</a>
+                    <a href="services.html" class="btn-outline btn-large">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GigCampus</h3>
+                    <p>Connecting students across campuses to create opportunities and build communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Tutoring</a></li>
+                        <li><a href="#">Design</a></li>
+                        <li><a href="#">Programming</a></li>
+                        <li><a href="#">Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">hello@gigcampus.in</a></li>
+                        <li><a href="#">+91 98765 43210</a></li>
+                        <li><a href="#">Mumbai, Maharashtra</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GigCampus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js//static/js/script.js"></script>
+</body>
+</html>
